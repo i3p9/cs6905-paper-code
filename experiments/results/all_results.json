@@ -1,0 +1,734 @@
+{
+  "knowledge_healing": {
+    "experiment": "Knowledge Healing Loop",
+    "config": {
+      "model": "all-MiniLM-L6-v2",
+      "doc_drift_threshold": 0.15,
+      "chunk_drift_threshold": 0.08,
+      "num_documents": 20,
+      "num_trials": 5
+    },
+    "detection": {
+      "No change": {
+        "hash": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "semantic_doc": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "semantic_chunk": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "composite": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "composite_cons": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "doc_cosine_distance": {
+          "mean": -0.0,
+          "std": 0.0,
+          "min": -0.0,
+          "max": 0.0
+        },
+        "chunk_cosine_distance": {
+          "mean": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      },
+      "Formatting only": {
+        "hash": {
+          "tp": 0,
+          "fp": 100,
+          "tn": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0,
+          "accuracy": 0.0
+        },
+        "semantic_doc": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "semantic_chunk": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "composite": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 100,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "composite_cons": {
+          "tp": 0,
+          "fp": 100,
+          "tn": 0,
+          "fn": 0,
+          "precision": 0.0,
+          "recall": 1.0,
+          "f1": 0.0,
+          "accuracy": 0.0
+        },
+        "doc_cosine_distance": {
+          "mean": -0.0,
+          "std": 0.0,
+          "min": -0.0,
+          "max": 0.0
+        },
+        "chunk_cosine_distance": {
+          "mean": 0.0,
+          "std": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        }
+      },
+      "Small numerical (~1%)": {
+        "hash": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "semantic_doc": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 100,
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "accuracy": 0.0
+        },
+        "semantic_chunk": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 100,
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "accuracy": 0.0
+        },
+        "composite": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 100,
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "accuracy": 0.0
+        },
+        "composite_cons": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "doc_cosine_distance": {
+          "mean": 0.001522,
+          "std": 0.002822,
+          "min": 5.5e-05,
+          "max": 0.013399
+        },
+        "chunk_cosine_distance": {
+          "mean": 0.003852,
+          "std": 0.005963,
+          "min": 0.000235,
+          "max": 0.026989
+        }
+      },
+      "Large numerical (3x)": {
+        "hash": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "semantic_doc": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 100,
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "accuracy": 0.0
+        },
+        "semantic_chunk": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 100,
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "accuracy": 0.0
+        },
+        "composite": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 100,
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "accuracy": 0.0
+        },
+        "composite_cons": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "doc_cosine_distance": {
+          "mean": 0.001859,
+          "std": 0.003236,
+          "min": 7e-05,
+          "max": 0.015102
+        },
+        "chunk_cosine_distance": {
+          "mean": 0.004846,
+          "std": 0.007761,
+          "min": 0.000216,
+          "max": 0.031369
+        }
+      },
+      "Partial rewrite": {
+        "hash": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "semantic_doc": {
+          "tp": 0,
+          "fp": 0,
+          "tn": 0,
+          "fn": 100,
+          "precision": 1.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "accuracy": 0.0
+        },
+        "semantic_chunk": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "composite": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "composite_cons": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "doc_cosine_distance": {
+          "mean": 0.044046,
+          "std": 0.028133,
+          "min": 0.008117,
+          "max": 0.123038
+        },
+        "chunk_cosine_distance": {
+          "mean": 0.781589,
+          "std": 0.069347,
+          "min": 0.630595,
+          "max": 0.887193
+        }
+      },
+      "Full rewrite": {
+        "hash": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "semantic_doc": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "semantic_chunk": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "composite": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "composite_cons": {
+          "tp": 100,
+          "fp": 0,
+          "tn": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "accuracy": 1.0
+        },
+        "doc_cosine_distance": {
+          "mean": 0.701898,
+          "std": 0.148801,
+          "min": 0.461888,
+          "max": 1.006443
+        },
+        "chunk_cosine_distance": {
+          "mean": 0.811004,
+          "std": 0.092107,
+          "min": 0.627656,
+          "max": 0.979188
+        }
+      }
+    },
+    "latency": {
+      "trials": [
+        {
+          "trial": 1,
+          "refetch_s": 0.0,
+          "rechunk_s": 0.0,
+          "reembed_s": 0.3736,
+          "upsert_s": 0.0,
+          "validate_s": 0.1243,
+          "total_s": 0.498
+        },
+        {
+          "trial": 2,
+          "refetch_s": 0.0,
+          "rechunk_s": 0.0001,
+          "reembed_s": 0.0908,
+          "upsert_s": 0.0,
+          "validate_s": 0.0117,
+          "total_s": 0.1026
+        },
+        {
+          "trial": 3,
+          "refetch_s": 0.0,
+          "rechunk_s": 0.0001,
+          "reembed_s": 0.0774,
+          "upsert_s": 0.0,
+          "validate_s": 0.0118,
+          "total_s": 0.0892
+        },
+        {
+          "trial": 4,
+          "refetch_s": 0.0,
+          "rechunk_s": 0.0001,
+          "reembed_s": 0.0764,
+          "upsert_s": 0.0,
+          "validate_s": 0.0117,
+          "total_s": 0.0881
+        },
+        {
+          "trial": 5,
+          "refetch_s": 0.0,
+          "rechunk_s": 0.0001,
+          "reembed_s": 0.0756,
+          "upsert_s": 0.0,
+          "validate_s": 0.0113,
+          "total_s": 0.087
+        }
+      ],
+      "average": {
+        "refetch_s": 0.0,
+        "rechunk_s": 0.0001,
+        "reembed_s": 0.1388,
+        "upsert_s": 0.0,
+        "validate_s": 0.0342,
+        "total_s": 0.173
+      }
+    },
+    "model_load_time_s": 2.17
+  },
+  "infra_healing": {
+    "experiment": "Infrastructure Healing Loop",
+    "config": {
+      "thresholds": {
+        "latency_p99_ms": 500,
+        "error_rate_pct": 5.0,
+        "memory_util_pct": 85.0,
+        "cold_start_pct": 20.0
+      },
+      "num_metric_points": 1000,
+      "num_injected_anomalies": 15
+    },
+    "per_metric": {
+      "latency_p99_ms": {
+        "threshold": 500,
+        "num_true_anomalies": 15,
+        "num_detected": 18,
+        "evaluation": {
+          "tp": 15,
+          "fp": 2,
+          "fn": 0,
+          "precision": 0.8824,
+          "recall": 1.0,
+          "f1": 0.9375
+        },
+        "detection_time_ms": 8.69,
+        "decision_time_ms": 0.02,
+        "total_time_ms": 8.71,
+        "sample_decisions": [
+          {
+            "timestamp_idx": 58,
+            "metric": "latency_p99_ms",
+            "value": 501.17,
+            "threshold": 500,
+            "action": "Scale Lambda memory / enable provisioned concurrency"
+          },
+          {
+            "timestamp_idx": 91,
+            "metric": "latency_p99_ms",
+            "value": 599.21,
+            "threshold": 500,
+            "action": "Scale Lambda memory / enable provisioned concurrency"
+          },
+          {
+            "timestamp_idx": 161,
+            "metric": "latency_p99_ms",
+            "value": 580.52,
+            "threshold": 500,
+            "action": "Scale Lambda memory / enable provisioned concurrency"
+          }
+        ]
+      },
+      "error_rate_pct": {
+        "threshold": 5.0,
+        "num_true_anomalies": 15,
+        "num_detected": 21,
+        "evaluation": {
+          "tp": 15,
+          "fp": 6,
+          "fn": 0,
+          "precision": 0.7143,
+          "recall": 1.0,
+          "f1": 0.8333
+        },
+        "detection_time_ms": 8.62,
+        "decision_time_ms": 0.01,
+        "total_time_ms": 8.63,
+        "sample_decisions": [
+          {
+            "timestamp_idx": 35,
+            "metric": "error_rate_pct",
+            "value": 5.4,
+            "threshold": 5.0,
+            "action": "Analyze CloudWatch Logs Insights / trigger code rollback"
+          },
+          {
+            "timestamp_idx": 70,
+            "metric": "error_rate_pct",
+            "value": 9.29,
+            "threshold": 5.0,
+            "action": "Analyze CloudWatch Logs Insights / trigger code rollback"
+          },
+          {
+            "timestamp_idx": 153,
+            "metric": "error_rate_pct",
+            "value": 10.97,
+            "threshold": 5.0,
+            "action": "Analyze CloudWatch Logs Insights / trigger code rollback"
+          }
+        ]
+      },
+      "memory_util_pct": {
+        "threshold": 85.0,
+        "num_true_anomalies": 15,
+        "num_detected": 26,
+        "evaluation": {
+          "tp": 13,
+          "fp": 12,
+          "fn": 2,
+          "precision": 0.52,
+          "recall": 0.8667,
+          "f1": 0.65
+        },
+        "detection_time_ms": 8.54,
+        "decision_time_ms": 0.01,
+        "total_time_ms": 8.55,
+        "sample_decisions": [
+          {
+            "timestamp_idx": 69,
+            "metric": "memory_util_pct",
+            "value": 98.71,
+            "threshold": 85.0,
+            "action": "Increase Lambda memory allocation"
+          },
+          {
+            "timestamp_idx": 121,
+            "metric": "memory_util_pct",
+            "value": 102.69,
+            "threshold": 85.0,
+            "action": "Increase Lambda memory allocation"
+          },
+          {
+            "timestamp_idx": 125,
+            "metric": "memory_util_pct",
+            "value": 88.03,
+            "threshold": 85.0,
+            "action": "Increase Lambda memory allocation"
+          }
+        ]
+      },
+      "cold_start_pct": {
+        "threshold": 20.0,
+        "num_true_anomalies": 15,
+        "num_detected": 24,
+        "evaluation": {
+          "tp": 15,
+          "fp": 7,
+          "fn": 0,
+          "precision": 0.6818,
+          "recall": 1.0,
+          "f1": 0.8108
+        },
+        "detection_time_ms": 8.51,
+        "decision_time_ms": 0.01,
+        "total_time_ms": 8.52,
+        "sample_decisions": [
+          {
+            "timestamp_idx": 38,
+            "metric": "cold_start_pct",
+            "value": 13.49,
+            "threshold": 20.0,
+            "action": "Enable provisioned concurrency / warm-up schedule"
+          },
+          {
+            "timestamp_idx": 93,
+            "metric": "cold_start_pct",
+            "value": 21.84,
+            "threshold": 20.0,
+            "action": "Enable provisioned concurrency / warm-up schedule"
+          },
+          {
+            "timestamp_idx": 178,
+            "metric": "cold_start_pct",
+            "value": 19.91,
+            "threshold": 20.0,
+            "action": "Enable provisioned concurrency / warm-up schedule"
+          }
+        ]
+      }
+    },
+    "composite_alarm": {
+      "single_metric_alarms": 33,
+      "composite_alarms": 0,
+      "false_positive_reduction_pct": 100.0
+    },
+    "overall": {
+      "precision": 0.6824,
+      "recall": 0.9667,
+      "f1": 0.8,
+      "avg_detection_decision_latency_ms": 8.6
+    }
+  },
+  "cost_projection": {
+    "experiment": "AWS Cost Projection",
+    "config": {
+      "pricing": {
+        "lambda_per_request": 2e-07,
+        "lambda_per_gb_sec": 1.66667e-05,
+        "lambda_memory_mb": 256,
+        "lambda_avg_duration_ms": 200,
+        "eventbridge_per_event": 1e-06,
+        "cloudwatch_metrics_per_metric": 0.3,
+        "cloudwatch_alarms_standard": 0.1,
+        "cloudwatch_alarms_anomaly": 3.0,
+        "sns_per_notification": 0.0,
+        "dynamodb_wcu_per_month": 0.00065,
+        "dynamodb_rcu_per_month": 0.00013,
+        "bedrock_titan_embed_per_1k_tokens": 0.0001,
+        "bedrock_claude_input_per_1k_tokens": 0.003,
+        "bedrock_claude_output_per_1k_tokens": 0.015
+      },
+      "scenario": {
+        "monitoring_interval_hours": 6,
+        "num_sources": 20,
+        "avg_healing_events_per_month": 8,
+        "avg_tokens_per_doc": 500,
+        "avg_chunks_per_doc": 5,
+        "validation_queries": 10,
+        "avg_query_input_tokens": 200,
+        "avg_query_output_tokens": 150,
+        "num_cloudwatch_metrics": 8,
+        "num_standard_alarms": 4,
+        "num_anomaly_alarms": 2,
+        "dynamodb_wcu": 5,
+        "dynamodb_rcu": 10,
+        "developer_hourly_rate": 50,
+        "manual_hours_per_week": 6
+      }
+    },
+    "breakdown": {
+      "Monitoring (CloudWatch + EventBridge)": {
+        "agent": 8.8,
+        "manual": 0.0,
+        "detail": {
+          "CloudWatch metrics": 2.4,
+          "Standard alarms": 0.4,
+          "Anomaly detection alarms": 6.0,
+          "EventBridge events": 0.0002
+        }
+      },
+      "Healing compute (Lambda)": {
+        "agent": 0.0,
+        "manual": 0.0,
+        "detail": {
+          "Request cost": 5e-05,
+          "Compute cost": 0.0002,
+          "Total invocations": 248
+        }
+      },
+      "Embedding API (Bedrock Titan)": {
+        "agent": 0.01,
+        "manual": 0.01,
+        "detail": {
+          "Tokens per healing": 10000,
+          "Cost per healing event": 0.001,
+          "Events per month": 8
+        }
+      },
+      "Validation queries (Bedrock Claude)": {
+        "agent": 0.23,
+        "manual": 0.0,
+        "detail": {
+          "Queries per healing": 10,
+          "Cost per healing event": 0.0285
+        }
+      },
+      "State store (DynamoDB)": {
+        "agent": 3.32,
+        "manual": 0.0
+      },
+      "Developer time": {
+        "agent": 0.0,
+        "manual": 1299.0,
+        "detail": {
+          "Hours per week": 6,
+          "Hourly rate": 50,
+          "Weeks per month": 4.33
+        }
+      }
+    },
+    "totals": {
+      "agent_monthly": 12.36,
+      "manual_monthly": 1299.01,
+      "savings_pct": 99.0,
+      "agent_as_pct_of_manual": 1.0
+    }
+  },
+  "total_runtime_s": 28.46
+}

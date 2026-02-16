@@ -1,0 +1,182 @@
+{
+  "experiment": "Infrastructure Healing Loop",
+  "config": {
+    "thresholds": {
+      "latency_p99_ms": 500,
+      "error_rate_pct": 5.0,
+      "memory_util_pct": 85.0,
+      "cold_start_pct": 20.0
+    },
+    "num_metric_points": 1000,
+    "num_injected_anomalies": 15
+  },
+  "per_metric": {
+    "latency_p99_ms": {
+      "threshold": 500,
+      "num_true_anomalies": 15,
+      "num_detected": 18,
+      "evaluation": {
+        "tp": 15,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.8824,
+        "recall": 1.0,
+        "f1": 0.9375
+      },
+      "detection_time_ms": 8.69,
+      "decision_time_ms": 0.02,
+      "total_time_ms": 8.71,
+      "sample_decisions": [
+        {
+          "timestamp_idx": 58,
+          "metric": "latency_p99_ms",
+          "value": 501.17,
+          "threshold": 500,
+          "action": "Scale Lambda memory / enable provisioned concurrency"
+        },
+        {
+          "timestamp_idx": 91,
+          "metric": "latency_p99_ms",
+          "value": 599.21,
+          "threshold": 500,
+          "action": "Scale Lambda memory / enable provisioned concurrency"
+        },
+        {
+          "timestamp_idx": 161,
+          "metric": "latency_p99_ms",
+          "value": 580.52,
+          "threshold": 500,
+          "action": "Scale Lambda memory / enable provisioned concurrency"
+        }
+      ]
+    },
+    "error_rate_pct": {
+      "threshold": 5.0,
+      "num_true_anomalies": 15,
+      "num_detected": 21,
+      "evaluation": {
+        "tp": 15,
+        "fp": 6,
+        "fn": 0,
+        "precision": 0.7143,
+        "recall": 1.0,
+        "f1": 0.8333
+      },
+      "detection_time_ms": 8.62,
+      "decision_time_ms": 0.01,
+      "total_time_ms": 8.63,
+      "sample_decisions": [
+        {
+          "timestamp_idx": 35,
+          "metric": "error_rate_pct",
+          "value": 5.4,
+          "threshold": 5.0,
+          "action": "Analyze CloudWatch Logs Insights / trigger code rollback"
+        },
+        {
+          "timestamp_idx": 70,
+          "metric": "error_rate_pct",
+          "value": 9.29,
+          "threshold": 5.0,
+          "action": "Analyze CloudWatch Logs Insights / trigger code rollback"
+        },
+        {
+          "timestamp_idx": 153,
+          "metric": "error_rate_pct",
+          "value": 10.97,
+          "threshold": 5.0,
+          "action": "Analyze CloudWatch Logs Insights / trigger code rollback"
+        }
+      ]
+    },
+    "memory_util_pct": {
+      "threshold": 85.0,
+      "num_true_anomalies": 15,
+      "num_detected": 26,
+      "evaluation": {
+        "tp": 13,
+        "fp": 12,
+        "fn": 2,
+        "precision": 0.52,
+        "recall": 0.8667,
+        "f1": 0.65
+      },
+      "detection_time_ms": 8.54,
+      "decision_time_ms": 0.01,
+      "total_time_ms": 8.55,
+      "sample_decisions": [
+        {
+          "timestamp_idx": 69,
+          "metric": "memory_util_pct",
+          "value": 98.71,
+          "threshold": 85.0,
+          "action": "Increase Lambda memory allocation"
+        },
+        {
+          "timestamp_idx": 121,
+          "metric": "memory_util_pct",
+          "value": 102.69,
+          "threshold": 85.0,
+          "action": "Increase Lambda memory allocation"
+        },
+        {
+          "timestamp_idx": 125,
+          "metric": "memory_util_pct",
+          "value": 88.03,
+          "threshold": 85.0,
+          "action": "Increase Lambda memory allocation"
+        }
+      ]
+    },
+    "cold_start_pct": {
+      "threshold": 20.0,
+      "num_true_anomalies": 15,
+      "num_detected": 24,
+      "evaluation": {
+        "tp": 15,
+        "fp": 7,
+        "fn": 0,
+        "precision": 0.6818,
+        "recall": 1.0,
+        "f1": 0.8108
+      },
+      "detection_time_ms": 8.51,
+      "decision_time_ms": 0.01,
+      "total_time_ms": 8.52,
+      "sample_decisions": [
+        {
+          "timestamp_idx": 38,
+          "metric": "cold_start_pct",
+          "value": 13.49,
+          "threshold": 20.0,
+          "action": "Enable provisioned concurrency / warm-up schedule"
+        },
+        {
+          "timestamp_idx": 93,
+          "metric": "cold_start_pct",
+          "value": 21.84,
+          "threshold": 20.0,
+          "action": "Enable provisioned concurrency / warm-up schedule"
+        },
+        {
+          "timestamp_idx": 178,
+          "metric": "cold_start_pct",
+          "value": 19.91,
+          "threshold": 20.0,
+          "action": "Enable provisioned concurrency / warm-up schedule"
+        }
+      ]
+    }
+  },
+  "composite_alarm": {
+    "single_metric_alarms": 33,
+    "composite_alarms": 0,
+    "false_positive_reduction_pct": 100.0
+  },
+  "overall": {
+    "precision": 0.6824,
+    "recall": 0.9667,
+    "f1": 0.8,
+    "avg_detection_decision_latency_ms": 8.6
+  }
+}

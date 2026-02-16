@@ -1,0 +1,82 @@
+======================================================================
+EXPERIMENT RESULTS SUMMARY
+======================================================================
+
+1. KNOWLEDGE DRIFT DETECTION
+----------------------------------------------------------------------
+Modification Level         Hash  Sem.D  Sem.C   Comp   Cons   ChunkDist
+----------------------------------------------------------------------------
+No change                  1.00   1.00   1.00   1.00   1.00      0.0000
+Formatting only            0.00   1.00   1.00   1.00   0.00      0.0000
+Small numerical (~1%)      1.00   0.00   0.00   0.00   1.00      0.0039
+Large numerical (3x)       1.00   0.00   0.00   0.00   1.00      0.0048
+Partial rewrite            1.00   0.00   1.00   1.00   1.00      0.7816
+Full rewrite               1.00   1.00   1.00   1.00   1.00      0.8110
+
+  Key: Hash=hash-only, Sem.D=semantic(doc), Sem.C=semantic(chunk),
+       Comp=composite(strict), Cons=composite(conservative/hash-primary)
+
+  OVERALL DETECTION ACCURACY (Levels 2-5 = drift, Levels 0-1 = no drift)
+  --------------------------------------------------------
+  hash              P=0.80  R=1.00  F1=0.89  Acc=0.83
+  semantic_doc      P=1.00  R=0.25  F1=0.40  Acc=0.50
+  semantic_chunk    P=1.00  R=0.50  F1=0.67  Acc=0.67
+  composite         P=1.00  R=0.50  F1=0.67  Acc=0.67
+  composite_cons    P=0.80  R=1.00  F1=0.89  Acc=0.83
+
+  Composite FNR at small numerical changes: 100% (100/100)
+
+  COSINE DISTANCE DISTRIBUTIONS (Chunk-Level)
+  --------------------------------------------------------
+  Level                        Mean      Std      Min      Max
+  --------------------------------------------------------
+  No change                  0.0000   0.0000   0.0000   0.0000
+  Formatting only            0.0000   0.0000   0.0000   0.0000
+  Small numerical (~1%)      0.0039   0.0060   0.0002   0.0270
+  Large numerical (3x)       0.0048   0.0078   0.0002   0.0314
+  Partial rewrite            0.7816   0.0693   0.6306   0.8872
+  Full rewrite               0.8110   0.0921   0.6277   0.9792
+
+2. KNOWLEDGE HEALING LATENCY
+----------------------------------------------------------------------
+  Re-fetch:           0.0 ms
+  Re-chunk:           0.1 ms
+  Re-embed:         138.8 ms
+  Vector upsert:      0.0 ms
+  Validation:        34.2 ms
+  ───────────────────────────────────
+  TOTAL:            173.0 ms  (0.17s)
+
+  Note: Local execution with all-MiniLM-L6-v2.
+  AWS Bedrock Titan would add network latency (~100-300ms per batch).
+
+3. INFRASTRUCTURE HEALING
+----------------------------------------------------------------------
+Metric                   Prec    Rec     F1   Time(ms)
+----------------------------------------------------------------------
+latency_p99_ms           0.88   1.00   0.94       8.71
+error_rate_pct           0.71   1.00   0.83       8.63
+memory_util_pct          0.52   0.87   0.65       8.55
+cold_start_pct           0.68   1.00   0.81       8.52
+
+  Overall: P=0.68 R=0.97 F1=0.80
+  Avg detection+decision latency: 8.60ms
+
+  Composite alarm false-positive reduction: 100.0%
+
+4. AWS COST PROJECTION (Monthly)
+----------------------------------------------------------------------
+Component                                     Agent       Manual
+----------------------------------------------------------------------
+Monitoring (CloudWatch + EventBridge)         $8.80            —
+Healing compute (Lambda)                      $0.00            —
+Embedding API (Bedrock Titan)                 $0.01        $0.01
+Validation queries (Bedrock Claude)           $0.23            —
+State store (DynamoDB)                        $3.32            —
+Developer time                                $0.00     $1299.00
+----------------------------------------------------------------------
+TOTAL                                        $12.36     $1299.01
+
+  Savings: 99.0% — agent at 1.0% of manual cost
+
+======================================================================

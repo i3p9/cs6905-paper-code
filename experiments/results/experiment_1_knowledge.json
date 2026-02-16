@@ -1,0 +1,454 @@
+{
+  "experiment": "Knowledge Healing Loop",
+  "config": {
+    "model": "all-MiniLM-L6-v2",
+    "doc_drift_threshold": 0.15,
+    "chunk_drift_threshold": 0.08,
+    "num_documents": 20,
+    "num_trials": 5
+  },
+  "detection": {
+    "No change": {
+      "hash": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 100,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "semantic_doc": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 100,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "semantic_chunk": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 100,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "composite": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 100,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "composite_cons": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 100,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "doc_cosine_distance": {
+        "mean": -0.0,
+        "std": 0.0,
+        "min": -0.0,
+        "max": 0.0
+      },
+      "chunk_cosine_distance": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "Formatting only": {
+      "hash": {
+        "tp": 0,
+        "fp": 100,
+        "tn": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 1.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+      },
+      "semantic_doc": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 100,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "semantic_chunk": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 100,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "composite": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 100,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "composite_cons": {
+        "tp": 0,
+        "fp": 100,
+        "tn": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 1.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+      },
+      "doc_cosine_distance": {
+        "mean": -0.0,
+        "std": 0.0,
+        "min": -0.0,
+        "max": 0.0
+      },
+      "chunk_cosine_distance": {
+        "mean": 0.0,
+        "std": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "Small numerical (~1%)": {
+      "hash": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "semantic_doc": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 0,
+        "fn": 100,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+      },
+      "semantic_chunk": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 0,
+        "fn": 100,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+      },
+      "composite": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 0,
+        "fn": 100,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+      },
+      "composite_cons": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "doc_cosine_distance": {
+        "mean": 0.001522,
+        "std": 0.002822,
+        "min": 5.5e-05,
+        "max": 0.013399
+      },
+      "chunk_cosine_distance": {
+        "mean": 0.003852,
+        "std": 0.005963,
+        "min": 0.000235,
+        "max": 0.026989
+      }
+    },
+    "Large numerical (3x)": {
+      "hash": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "semantic_doc": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 0,
+        "fn": 100,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+      },
+      "semantic_chunk": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 0,
+        "fn": 100,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+      },
+      "composite": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 0,
+        "fn": 100,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+      },
+      "composite_cons": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "doc_cosine_distance": {
+        "mean": 0.001859,
+        "std": 0.003236,
+        "min": 7e-05,
+        "max": 0.015102
+      },
+      "chunk_cosine_distance": {
+        "mean": 0.004846,
+        "std": 0.007761,
+        "min": 0.000216,
+        "max": 0.031369
+      }
+    },
+    "Partial rewrite": {
+      "hash": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "semantic_doc": {
+        "tp": 0,
+        "fp": 0,
+        "tn": 0,
+        "fn": 100,
+        "precision": 1.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "accuracy": 0.0
+      },
+      "semantic_chunk": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "composite": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "composite_cons": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "doc_cosine_distance": {
+        "mean": 0.044046,
+        "std": 0.028133,
+        "min": 0.008117,
+        "max": 0.123038
+      },
+      "chunk_cosine_distance": {
+        "mean": 0.781589,
+        "std": 0.069347,
+        "min": 0.630595,
+        "max": 0.887193
+      }
+    },
+    "Full rewrite": {
+      "hash": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "semantic_doc": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "semantic_chunk": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "composite": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "composite_cons": {
+        "tp": 100,
+        "fp": 0,
+        "tn": 0,
+        "fn": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "accuracy": 1.0
+      },
+      "doc_cosine_distance": {
+        "mean": 0.701898,
+        "std": 0.148801,
+        "min": 0.461888,
+        "max": 1.006443
+      },
+      "chunk_cosine_distance": {
+        "mean": 0.811004,
+        "std": 0.092107,
+        "min": 0.627656,
+        "max": 0.979188
+      }
+    }
+  },
+  "latency": {
+    "trials": [
+      {
+        "trial": 1,
+        "refetch_s": 0.0,
+        "rechunk_s": 0.0,
+        "reembed_s": 0.3736,
+        "upsert_s": 0.0,
+        "validate_s": 0.1243,
+        "total_s": 0.498
+      },
+      {
+        "trial": 2,
+        "refetch_s": 0.0,
+        "rechunk_s": 0.0001,
+        "reembed_s": 0.0908,
+        "upsert_s": 0.0,
+        "validate_s": 0.0117,
+        "total_s": 0.1026
+      },
+      {
+        "trial": 3,
+        "refetch_s": 0.0,
+        "rechunk_s": 0.0001,
+        "reembed_s": 0.0774,
+        "upsert_s": 0.0,
+        "validate_s": 0.0118,
+        "total_s": 0.0892
+      },
+      {
+        "trial": 4,
+        "refetch_s": 0.0,
+        "rechunk_s": 0.0001,
+        "reembed_s": 0.0764,
+        "upsert_s": 0.0,
+        "validate_s": 0.0117,
+        "total_s": 0.0881
+      },
+      {
+        "trial": 5,
+        "refetch_s": 0.0,
+        "rechunk_s": 0.0001,
+        "reembed_s": 0.0756,
+        "upsert_s": 0.0,
+        "validate_s": 0.0113,
+        "total_s": 0.087
+      }
+    ],
+    "average": {
+      "refetch_s": 0.0,
+      "rechunk_s": 0.0001,
+      "reembed_s": 0.1388,
+      "upsert_s": 0.0,
+      "validate_s": 0.0342,
+      "total_s": 0.173
+    }
+  },
+  "model_load_time_s": 2.17
+}

@@ -1,0 +1,95 @@
+{
+  "experiment": "AWS Cost Projection",
+  "config": {
+    "pricing": {
+      "lambda_per_request": 2e-07,
+      "lambda_per_gb_sec": 1.66667e-05,
+      "lambda_memory_mb": 256,
+      "lambda_avg_duration_ms": 200,
+      "eventbridge_per_event": 1e-06,
+      "cloudwatch_metrics_per_metric": 0.3,
+      "cloudwatch_alarms_standard": 0.1,
+      "cloudwatch_alarms_anomaly": 3.0,
+      "sns_per_notification": 0.0,
+      "dynamodb_wcu_per_month": 0.00065,
+      "dynamodb_rcu_per_month": 0.00013,
+      "bedrock_titan_embed_per_1k_tokens": 0.0001,
+      "bedrock_claude_input_per_1k_tokens": 0.003,
+      "bedrock_claude_output_per_1k_tokens": 0.015
+    },
+    "scenario": {
+      "monitoring_interval_hours": 6,
+      "num_sources": 20,
+      "avg_healing_events_per_month": 8,
+      "avg_tokens_per_doc": 500,
+      "avg_chunks_per_doc": 5,
+      "validation_queries": 10,
+      "avg_query_input_tokens": 200,
+      "avg_query_output_tokens": 150,
+      "num_cloudwatch_metrics": 8,
+      "num_standard_alarms": 4,
+      "num_anomaly_alarms": 2,
+      "dynamodb_wcu": 5,
+      "dynamodb_rcu": 10,
+      "developer_hourly_rate": 50,
+      "manual_hours_per_week": 6
+    }
+  },
+  "breakdown": {
+    "Monitoring (CloudWatch + EventBridge)": {
+      "agent": 8.8,
+      "manual": 0.0,
+      "detail": {
+        "CloudWatch metrics": 2.4,
+        "Standard alarms": 0.4,
+        "Anomaly detection alarms": 6.0,
+        "EventBridge events": 0.0002
+      }
+    },
+    "Healing compute (Lambda)": {
+      "agent": 0.0,
+      "manual": 0.0,
+      "detail": {
+        "Request cost": 5e-05,
+        "Compute cost": 0.0002,
+        "Total invocations": 248
+      }
+    },
+    "Embedding API (Bedrock Titan)": {
+      "agent": 0.01,
+      "manual": 0.01,
+      "detail": {
+        "Tokens per healing": 10000,
+        "Cost per healing event": 0.001,
+        "Events per month": 8
+      }
+    },
+    "Validation queries (Bedrock Claude)": {
+      "agent": 0.23,
+      "manual": 0.0,
+      "detail": {
+        "Queries per healing": 10,
+        "Cost per healing event": 0.0285
+      }
+    },
+    "State store (DynamoDB)": {
+      "agent": 3.32,
+      "manual": 0.0
+    },
+    "Developer time": {
+      "agent": 0.0,
+      "manual": 1299.0,
+      "detail": {
+        "Hours per week": 6,
+        "Hourly rate": 50,
+        "Weeks per month": 4.33
+      }
+    }
+  },
+  "totals": {
+    "agent_monthly": 12.36,
+    "manual_monthly": 1299.01,
+    "savings_pct": 99.0,
+    "agent_as_pct_of_manual": 1.0
+  }
+}
